@@ -1,0 +1,62 @@
+// {
+//     "presets": ["@babel/preset-env","@babel/preset-react"],
+//     "plugins": ["@babel/plugin-transform-runtime"]
+//   }
+// {
+//   "presets": [
+//     [
+//       "@babel/preset-env",
+//       {
+//         "useBuiltIns": "usage",
+
+//       }
+//     ]
+//   ],
+//   "plugins": ["@babel/plugin-transform-runtime"]
+//  }
+
+// {
+//   "presets": ["@babel/preset-env",
+//               { "useBuiltIns": "usage" },
+//               "@babel/preset-react"],
+//   "plugins": ["@babel/plugin-transform-runtime"]
+// }
+
+// {
+//   "presets": [
+//     [
+//       "@babel/preset-env",
+//       {
+//          "modules": false,
+//         //  "polyfills": ["es6.promise", "es6.symbol"],
+
+//       }
+//     ]
+//   ]
+// }
+
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false, //设置ES6 模块转译的模块格式 默认是 commonjs
+        "targets": {
+          "browsers": ["last 2 versions", "ie >= 9"]
+        },
+        "debug": false, // debug，编译的时候 console
+        //   .useBuiltIns三个设置选项
+        //    * false - 不做任何操作
+        //    * entry - 根据浏览器版本的支持，将 polyfill 需求拆分引入，仅引入有浏览器不支持的polyfill
+        //    * usage - 检测代码中 ES6/7/8 等的使用情况，仅仅加载代码中用到的 polyfill
+        "useBuiltIns": "usage", // 是否开启自动支持 polyfill
+        "corejs": 3, //https://babeljs.io/blog/2019/03/19/7.4.0#migration-from-core-js-2
+        "include": [], // 总是启用哪些 plugins
+        "exclude": [] // 强制不启用哪些 plugins，用来防止某些插件被启用
+      }
+    ]
+  ],
+  "plugins": [
+    // "transform-react-jsx" //如果是需要支持 jsx 这个东西要单独装一下。
+  ]
+}
